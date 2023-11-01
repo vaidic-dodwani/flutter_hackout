@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_leadify/model/funnel_data_model.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
-class FunnelData {
-  const FunnelData(this.x, this.y);
-  final String x;
-  final double y;
-}
 
 class FunnelChart extends StatelessWidget {
   const FunnelChart({super.key});
