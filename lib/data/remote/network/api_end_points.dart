@@ -1,3 +1,3 @@
 class ApiLinks {
-  static const String tempUrl = "";
+  static const String getleads = "leads";
 }

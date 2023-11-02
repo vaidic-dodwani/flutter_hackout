@@ -1,5 +1,5 @@
 abstract class BaseApiService {
-  final String baseUrl = "";
+  final String baseUrl = "https://fe8a-103-164-25-215.ngrok-free.app/";
 
   Future<dynamic> getResponse(String url, Map<String, String> header);
   Future<dynamic> postResponse(

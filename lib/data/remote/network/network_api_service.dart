@@ -11,6 +11,7 @@ class NetworkApiService extends BaseApiService {
       {final bool appendBase = true}) async {
     dynamic responseJson;
     try {
+      print("App Called ${url}");
       final apiUrl = appendBase ? baseUrl + url : url;
       final response = await http
           .get(Uri.parse(apiUrl), headers: header)

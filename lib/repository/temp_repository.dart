@@ -1,25 +1,30 @@
+import 'dart:developer';
 import 'dart:io';
+
+import 'package:flutter_leadify/model/lead_backend_model.dart';
 
 import '../data/remote/network/api_end_points.dart';
 import '../data/remote/network/network_api_service.dart';
 
-abstract class _TempAbstract {
-  Future<dynamic> tempApi(Map<String, dynamic> body);
+abstract class ILeadsRepository {
+  Future<List<LeadModelBackend>> getLeads();
 }
 
-class TempRepository extends _TempAbstract {
+class LeadsRepository implements ILeadsRepository {
   final _apiService = NetworkApiService();
   Map<String, String> header = {
     HttpHeaders.contentTypeHeader: "application/json",
   };
 
   @override
-  Future<dynamic> tempApi(dynamic body) async {
+  Future<List<LeadModelBackend>> getLeads() async {
     try {
       final resp =
-          await _apiService.postResponse(ApiLinks.tempUrl, body, header);
-      return resp;
+          await _apiService.getResponse(ApiLinks.getleads,header);
+      print(resp);
+      return List<LeadModelBackend>.from(resp.map((e)=>LeadModelBackend.fromJson(e)));
     } on Exception catch (_) {
+      log(_.toString());
       rethrow;
     }
   }
