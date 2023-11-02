@@ -8,6 +8,7 @@ import '../data/remote/network/network_api_service.dart';
 
 abstract class ILeadsRepository {
   Future<List<LeadModelBackend>> getLeads();
+  Future<void> deleteAllLeads();
 }
 
 class LeadsRepository implements ILeadsRepository {
@@ -23,6 +24,17 @@ class LeadsRepository implements ILeadsRepository {
           await _apiService.getResponse(ApiLinks.getleads,header);
       print(resp);
       return List<LeadModelBackend>.from(resp.map((e)=>LeadModelBackend.fromJson(e)));
+    } on Exception catch (_) {
+      log(_.toString());
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> deleteAllLeads() async {
+    try {
+      final resp =
+          await _apiService.getResponse(ApiLinks.deleteLeads,header);
     } on Exception catch (_) {
       log(_.toString());
       rethrow;

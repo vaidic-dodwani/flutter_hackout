@@ -13,6 +13,15 @@ class GoRouterConfig {
         pageBuilder: (context, state) {
           return  MaterialPage(child: BottomNavigationScreen());
         },
+        routes: [
+        GoRoute(
+        name: AppRouteNames.homepageRoute,
+        path: '/lead',
+        pageBuilder: (context, state) {
+          return  MaterialPage(child: BottomNavigationScreen());
+        },
+        routes: []
+      ),]
       ),
     ],
   );

@@ -12,4 +12,10 @@ class LeadNotifier extends ChangeNotifier {
     _leads = await repository.getLeads();
     notifyListeners();
   }
+
+  deleteallLead() async {
+    _leads=[];
+    notifyListeners();
+    repository.deleteAllLeads();
+  }
 }

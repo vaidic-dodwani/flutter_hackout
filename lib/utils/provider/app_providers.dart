@@ -6,6 +6,6 @@ import 'package:provider/single_child_widget.dart';
 class AppProvider {
   static List<SingleChildWidget> providers = [
     ChangeNotifierProvider(create: (_) => HomeNotifier()),
-    ChangeNotifierProvider(create: (_) => LeadNotifier())
+    ChangeNotifierProvider(create: (_) => LeadNotifier()..getLeads())
   ];
 }
