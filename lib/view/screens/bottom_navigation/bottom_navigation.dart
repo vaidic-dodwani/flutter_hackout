@@ -27,6 +27,10 @@ class BottomNavigationScreen extends StatelessWidget {
       builder: (context, home, child) => Scaffold(
         appBar: AppBar(
           title: Text('Leadify', style: TT.f22w500),
+          elevation: 0,
+          shadowColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          scrolledUnderElevation: 0,
         ),
         body: _screens[home.selectedScreen],
         bottomNavigationBar: BottomNavigationBar(
