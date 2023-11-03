@@ -1,0 +1,95 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_leadify/view/shared/app_bar.dart';
+import 'package:flutter_leadify/view/shared/custom_button.dart';
+import 'package:flutter_leadify/view_model/campaign_view_model/campaign_view_model.dart';
+import 'package:flutter_leadify/view_model/templates_view_model/templates_view_model.dart';
+import 'package:provider/provider.dart';
+
+class AddCampaign extends StatefulWidget {
+  const AddCampaign({super.key});
+
+  @override
+  State<AddCampaign> createState() => _AddCampaignState();
+}
+
+class _AddCampaignState extends State<AddCampaign> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) async {
+        await Provider.of<TemplateViewModel>(context, listen: false)
+            .getTemplatesIfEmpty();
+        await Provider.of<CampaignViewModel>(context, listen: false)
+            .getCampaignsIfEmpty();
+      },
+    );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MyAppBar(),
+      body: Consumer2<TemplateViewModel, CampaignViewModel>(
+        builder: (context, templates, campaign, child) {
+          if (templates.templates.isEmpty) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 36),
+                const TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter Duration',
+                    label: Text('Duration'),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                DropdownMenu(
+                  width: MediaQuery.of(context).size.width - 32,
+                  hintText: "Template",
+                  dropdownMenuEntries: List.generate(
+                    templates.templates.length,
+                    (index) => DropdownMenuEntry(
+                      value: templates.templates[index].templateName,
+                      label: templates.templates[index].templateName,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                DropdownMenu(
+                  width: MediaQuery.of(context).size.width - 32,
+                  hintText: "Company",
+                  dropdownMenuEntries: List.generate(
+                    campaign.targets.length,
+                    (index) => DropdownMenuEntry(
+                      value: campaign.targets
+                          .elementAt(index)
+                          .targetName
+                          .toUpperCase(),
+                      label: campaign.targets
+                          .elementAt(index)
+                          .targetName
+                          .toUpperCase(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const CustomButton(text: "Send Campaign"),
+                const SizedBox(height: 12),
+                const SizedBox(height: 12),
+                const SizedBox(height: 12),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_leadify/model/campaign_model.dart';
 import 'package:flutter_leadify/utils/constants/constants.dart';
 
 class CampaignItemTile extends StatelessWidget {
-  const CampaignItemTile({super.key});
-
+  const CampaignItemTile({super.key, required this.campaign});
+  final Campaign campaign;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,12 +25,12 @@ class CampaignItemTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(
-                  AppAssets.gmailLogo,
+                Image.network(
+                  campaign.target.logo,
                   width: 150,
                   height: 150,
                 ),
@@ -39,7 +40,7 @@ class CampaignItemTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "485",
+                        campaign.totalLikes.isEmpty ? "0" : campaign.totalLikes,
                         style: TT.f22w700,
                       ),
                       Text(
@@ -74,7 +75,7 @@ class CampaignItemTile extends StatelessWidget {
                           children: <TextSpan>[
                             TextSpan(text: 'Target: ', style: TT.f14w500Grey),
                             TextSpan(
-                              text: 'Gmail',
+                              text: campaign.target.targetName,
                               style: TT.f14w500,
                             )
                           ],
@@ -88,7 +89,7 @@ class CampaignItemTile extends StatelessWidget {
                             TextSpan(
                                 text: 'Impressions: ', style: TT.f14w500Grey),
                             TextSpan(
-                              text: '45299',
+                              text: campaign.impressions.toString(),
                               style: TT.f14w500,
                             )
                           ],
@@ -123,7 +124,7 @@ class CampaignItemTile extends StatelessWidget {
                               TextSpan(
                                   text: 'Duration: ', style: TT.f14w500Grey),
                               TextSpan(
-                                text: '5',
+                                text: campaign.duration.toString(),
                                 style: TT.f14w500,
                               )
                             ],
@@ -131,7 +132,9 @@ class CampaignItemTile extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         LinearProgressIndicator(
-                          value: 0.5,
+                          value: campaign.percentageChange.isEmpty
+                              ? 0
+                              : int.parse(campaign.percentageChange) / 100,
                           backgroundColor: AppColors
                               .unselectedBottomNavigationBarColor
                               .withOpacity(0.5),

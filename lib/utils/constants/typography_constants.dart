@@ -11,6 +11,10 @@ class TT {
       color: AppColors.unselectedBottomNavigationBarColor);
   static TextStyle f14w500 =
       const TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
+  static TextStyle f14w700 =
+      const TextStyle(fontSize: 14, fontWeight: FontWeight.w700);
+  static TextStyle f14w500White = const TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white);
 
   static TextStyle f14w500Grey = const TextStyle(
       fontSize: 14,
