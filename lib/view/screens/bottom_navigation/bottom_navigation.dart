@@ -11,14 +11,14 @@ import 'package:flutter_leadify/view_model/temp_view_model/temp_view_model.dart'
 import 'package:provider/provider.dart';
 
 class BottomNavigationScreen extends StatelessWidget {
-   BottomNavigationScreen({super.key});
+  BottomNavigationScreen({super.key});
 
-  final List<Widget> _screens =  [
-    Homepage(),
+  final List<Widget> _screens = [
+    const Homepage(),
     Leads(),
-    Schedules(),
-    Templates(),
-    Campaign(),
+    const Templates(),
+    const Schedules(),
+    const Campaign(),
   ];
 
   @override

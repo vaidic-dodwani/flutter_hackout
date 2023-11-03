@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_leadify/model/lead_backend_model.dart';
-import 'package:flutter_leadify/repository/temp_repository.dart';
+import 'package:flutter_leadify/repository/leads_repository.dart';
 
 class LeadNotifier extends ChangeNotifier {
-  LeadsRepository repository =LeadsRepository();
+  LeadsRepository repository = LeadsRepository();
 
   List<LeadModelBackend>? _leads;
   List<LeadModelBackend>? get leads => _leads;
@@ -14,7 +14,7 @@ class LeadNotifier extends ChangeNotifier {
   }
 
   deleteallLead() async {
-    _leads=[];
+    _leads = [];
     notifyListeners();
     repository.deleteAllLeads();
   }

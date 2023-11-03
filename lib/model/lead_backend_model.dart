@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final leadModelBackend = leadModelBackendFromJson(jsonString);
-
 import 'dart:convert';
 
 LeadModelBackend leadModelBackendFromJson(String str) => LeadModelBackend.fromJson(json.decode(str));
