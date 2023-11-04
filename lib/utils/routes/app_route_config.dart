@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_leadify/view/screens/campaign/add_campaign.dart';
 import 'package:flutter_leadify/view/screens/login/login.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,6 +22,15 @@ class GoRouterConfig {
         pageBuilder: (context, state) {
           return MaterialPage(child: BottomNavigationScreen());
         },
+        routes: [
+          GoRoute(
+            name: AppRouteNames.addCampaign,
+            path: 'add_campaign',
+            builder: (context, state) {
+              return const AddCampaign();
+            },
+          )
+        ],
       ),
     ],
   );
