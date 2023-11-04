@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/model/campaign_model.dart';
-import 'package:flutter_leadify/repository/campaigns_repository.dart';
+import 'package:flutter_hackout/model/campaign_model.dart';
+import 'package:flutter_hackout/repository/campaigns_repository.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class CampaignViewModel extends ChangeNotifier {

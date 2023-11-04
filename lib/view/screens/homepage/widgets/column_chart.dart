@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/model/closed_cases_data_model.dart';
+import 'package:flutter_hackout/model/closed_cases_data_model.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ColumnChart extends StatelessWidget {

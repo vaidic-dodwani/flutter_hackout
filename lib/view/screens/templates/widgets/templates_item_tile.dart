@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/model/template_model.dart';
-import 'package:flutter_leadify/utils/constants/constants.dart';
+import 'package:flutter_hackout/model/template_model.dart';
+import 'package:flutter_hackout/utils/constants/constants.dart';
 
 class TemplatesItemTile extends StatelessWidget {
   const TemplatesItemTile({super.key, required this.template});

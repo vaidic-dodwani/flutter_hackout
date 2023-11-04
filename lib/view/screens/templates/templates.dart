@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/constants/typography_constants.dart';
-import 'package:flutter_leadify/view/screens/templates/widgets/templates_item_tile.dart';
-import 'package:flutter_leadify/view/shared/shimmer/templates_shimmer/templates_shimmer.dart';
-import 'package:flutter_leadify/view_model/templates_view_model/templates_view_model.dart';
+import 'package:flutter_hackout/utils/constants/typography_constants.dart';
+import 'package:flutter_hackout/view/screens/templates/widgets/templates_item_tile.dart';
+import 'package:flutter_hackout/view/shared/shimmer/templates_shimmer/templates_shimmer.dart';
+import 'package:flutter_hackout/view_model/templates_view_model/templates_view_model.dart';
 import 'package:provider/provider.dart';
 
 class Templates extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/constants/typography_constants.dart';
+import 'package:flutter_hackout/utils/constants/typography_constants.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/constants/colors/app_colors.dart';
+import 'package:flutter_hackout/utils/constants/colors/app_colors.dart';
 
 class TT {
   static TextStyle f12w500 =

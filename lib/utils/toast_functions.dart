@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/real_size_function.dart';
+import 'package:flutter_hackout/utils/real_size_function.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 FToast _initializeToast(BuildContext context) {

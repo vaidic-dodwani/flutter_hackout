@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/model/template_model.dart';
-import 'package:flutter_leadify/utils/constants/constants.dart';
-import 'package:flutter_leadify/view/shared/app_bar.dart';
-import 'package:flutter_leadify/view/shared/custom_button.dart';
-import 'package:flutter_leadify/view_model/campaign_view_model/campaign_view_model.dart';
-import 'package:flutter_leadify/view_model/templates_view_model/templates_view_model.dart';
+import 'package:flutter_hackout/model/template_model.dart';
+import 'package:flutter_hackout/utils/constants/constants.dart';
+import 'package:flutter_hackout/view/shared/app_bar.dart';
+import 'package:flutter_hackout/view/shared/custom_button.dart';
+import 'package:flutter_hackout/view_model/campaign_view_model/campaign_view_model.dart';
+import 'package:flutter_hackout/view_model/templates_view_model/templates_view_model.dart';
 import 'package:provider/provider.dart';
 
 class AddCampaign extends StatefulWidget {
@@ -15,8 +15,6 @@ class AddCampaign extends StatefulWidget {
 }
 
 class _AddCampaignState extends State<AddCampaign> {
- 
-
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(

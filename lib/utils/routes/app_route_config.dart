@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/view/screens/campaign/add_campaign.dart';
-import 'package:flutter_leadify/view/screens/login/login.dart';
+import 'package:flutter_hackout/view/screens/campaign/add_campaign.dart';
+import 'package:flutter_hackout/view/screens/login/login.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../view/screens/bottom_navigation/bottom_navigation.dart';

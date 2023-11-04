@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:flutter_leadify/model/lead_backend_model.dart';
+import 'package:flutter_hackout/model/lead_backend_model.dart';
 
 import '../data/remote/network/api_end_points.dart';
 import '../data/remote/network/network_api_service.dart';

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_leadify/model/template_model.dart';
+import 'package:flutter_hackout/model/template_model.dart';
 
 List<Campaign> campaignFromJson(String str) =>
     List<Campaign>.from(json.decode(str).map((x) => Campaign.fromJson(x)));

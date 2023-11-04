@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/constants/typography_constants.dart';
+import 'package:flutter_hackout/utils/constants/typography_constants.dart';
 
 class HomeOverviewItemTile extends StatelessWidget {
   const HomeOverviewItemTile(

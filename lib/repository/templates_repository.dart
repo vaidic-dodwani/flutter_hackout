@@ -1,7 +1,8 @@
 import 'dart:io';
-import 'package:flutter_leadify/data/remote/network/api_end_points.dart';
-import 'package:flutter_leadify/data/remote/network/network_api_service.dart';
-import 'package:flutter_leadify/model/template_model.dart';
+
+import 'package:flutter_hackout/data/remote/network/api_end_points.dart';
+import 'package:flutter_hackout/data/remote/network/network_api_service.dart';
+import 'package:flutter_hackout/model/template_model.dart';
 
 abstract class _TemplatesAbstarct {
   Future<List<Template>> getTemplates();

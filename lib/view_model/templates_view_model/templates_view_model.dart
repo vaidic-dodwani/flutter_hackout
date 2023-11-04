@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/model/template_model.dart';
-import 'package:flutter_leadify/repository/templates_repository.dart';
+import 'package:flutter_hackout/model/template_model.dart';
+import 'package:flutter_hackout/repository/templates_repository.dart';
 
 class TemplateViewModel extends ChangeNotifier {
 //

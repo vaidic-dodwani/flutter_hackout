@@ -1,13 +1,12 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/model/lead_model.dart';
-import 'package:flutter_leadify/utils/constants/constants.dart';
-import 'package:flutter_leadify/view/screens/leads/widgets/lead_stage_widget.dart';
+import 'package:flutter_hackout/model/lead_model.dart';
+import 'package:flutter_hackout/utils/constants/constants.dart';
+import 'package:flutter_hackout/view/screens/leads/widgets/lead_stage_widget.dart';
 
 class LeadCard extends StatelessWidget {
   final LeadModel lead;
   const LeadCard({super.key, required this.lead});
-
 
   @override
   Widget build(BuildContext context) {

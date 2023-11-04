@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/constants/typography_constants.dart';
-import 'package:flutter_leadify/view/screens/homepage/widgets/column_chart.dart';
-import 'package:flutter_leadify/view/screens/homepage/widgets/funnel_chart.dart';
-import 'package:flutter_leadify/view/screens/homepage/widgets/home_overview_item_tile.dart';
+import 'package:flutter_hackout/utils/constants/typography_constants.dart';
+import 'package:flutter_hackout/view/screens/homepage/widgets/column_chart.dart';
+import 'package:flutter_hackout/view/screens/homepage/widgets/funnel_chart.dart';
+import 'package:flutter_hackout/view/screens/homepage/widgets/home_overview_item_tile.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/model/campaign_model.dart';
-import 'package:flutter_leadify/utils/constants/constants.dart';
+import 'package:flutter_hackout/model/campaign_model.dart';
+import 'package:flutter_hackout/utils/constants/constants.dart';
 
 class CampaignItemTile extends StatelessWidget {
   const CampaignItemTile({super.key, required this.campaign});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/constants/typography_constants.dart';
-import 'package:flutter_leadify/view/screens/campaign/widgets/campaign_item_tile.dart';
-import 'package:flutter_leadify/view/shared/shimmer/campaign_shimmer/campaign_shimmer.dart';
-import 'package:flutter_leadify/view_model/campaign_view_model/campaign_view_model.dart';
+import 'package:flutter_hackout/utils/constants/typography_constants.dart';
+import 'package:flutter_hackout/view/screens/campaign/widgets/campaign_item_tile.dart';
+import 'package:flutter_hackout/view/shared/shimmer/campaign_shimmer/campaign_shimmer.dart';
+import 'package:flutter_hackout/view_model/campaign_view_model/campaign_view_model.dart';
 import 'package:provider/provider.dart';
 
 class Campaign extends StatefulWidget {
