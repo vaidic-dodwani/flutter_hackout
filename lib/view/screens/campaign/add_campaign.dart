@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_leadify/model/template_model.dart';
 import 'package:flutter_leadify/view/shared/app_bar.dart';
 import 'package:flutter_leadify/view/shared/custom_button.dart';
 import 'package:flutter_leadify/view_model/campaign_view_model/campaign_view_model.dart';
@@ -13,6 +14,62 @@ class AddCampaign extends StatefulWidget {
 }
 
 class _AddCampaignState extends State<AddCampaign> {
+  final List<String> _leadGroup = [
+    'Paris Leads',
+    'Insurance Leads',
+    'Real Estate Leads',
+    'Mortgage Leads',
+    'Credit Repair Leads',
+    'Solar Leads',
+    'Home Security Leads',
+    'Home Improvement Leads',
+    'HVAC Leads',
+    'Auto Warranty Leads',
+    'Auto Insurance Leads',
+    'Auto Finance Leads',
+    'Auto Leads',
+    'Debt Leads',
+    'Student Loan Leads',
+    'Payday Leads',
+    'Tax Leads',
+    'Health Insurance Leads',
+    'Final Expense Leads',
+    'Medicare Leads',
+    'Life Insurance Leads',
+    'Solar Leads',
+    'Home Security Leads',
+    'Home Improvement Leads',
+    'HVAC Leads',
+    'Auto Warranty Leads',
+    'Auto Insurance Leads',
+    'Auto Finance Leads',
+    'Auto Leads',
+    'Debt Leads',
+    'Student Loan Leads',
+    'Payday Leads',
+    'Tax Leads',
+    'Health Insurance Leads',
+    'Final Expense Leads',
+    'Medicare Leads',
+    'Life Insurance Leads',
+    'Solar Leads',
+    'Home Security Leads',
+    'Home Improvement Leads',
+    'HVAC Leads',
+    'Auto Warranty Leads',
+    'Auto Insurance Leads',
+    'Auto Finance Leads',
+    'Auto Leads',
+    'Debt Leads',
+    'Student Loan Leads',
+    'Payday Leads',
+    'Tax Leads',
+    'Health Insurance Leads',
+    'Final Expense Leads',
+    'Medicare Leads',
+    'Life Insurance Leads'
+  ];
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(
@@ -25,6 +82,8 @@ class _AddCampaignState extends State<AddCampaign> {
     );
     super.initState();
   }
+
+  Template? _selectedTemplate;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +113,11 @@ class _AddCampaignState extends State<AddCampaign> {
                 DropdownMenu(
                   width: MediaQuery.of(context).size.width - 32,
                   hintText: "Template",
+                  onSelected: (value) {
+                    _selectedTemplate = templates.templates
+                        .firstWhere((element) => element.templateName == value);
+                    setState(() {});
+                  },
                   dropdownMenuEntries: List.generate(
                     templates.templates.length,
                     (index) => DropdownMenuEntry(
@@ -69,19 +133,34 @@ class _AddCampaignState extends State<AddCampaign> {
                   dropdownMenuEntries: List.generate(
                     campaign.targets.length,
                     (index) => DropdownMenuEntry(
-                      value: campaign.targets
-                          .elementAt(index)
-                          .targetName
-                          .toUpperCase(),
-                      label: campaign.targets
-                          .elementAt(index)
-                          .targetName
-                          .toUpperCase(),
+                      value: campaign.targets.elementAt(index).toUpperCase(),
+                      label: campaign.targets.elementAt(index).toUpperCase(),
                     ),
                   ),
                 ),
                 const SizedBox(height: 12),
-                const CustomButton(text: "Send Campaign"),
+                DropdownMenu(
+                  width: MediaQuery.of(context).size.width - 32,
+                  hintText: "Lead Group",
+                  dropdownMenuEntries: List.generate(
+                    _leadGroup.length,
+                    (index) => DropdownMenuEntry(
+                      value: _leadGroup[index],
+                      label: _leadGroup[index],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                CustomButton(
+                  text: "Send Campaign",
+                  isLoading: campaign.isAddCampaignLoading,
+                  onTap: _selectedTemplate == null
+                      ? null
+                      : () {
+                          campaign.addCampaign(
+                              context, _selectedTemplate!.templateName);
+                        },
+                ),
                 const SizedBox(height: 12),
                 const SizedBox(height: 12),
                 const SizedBox(height: 12),

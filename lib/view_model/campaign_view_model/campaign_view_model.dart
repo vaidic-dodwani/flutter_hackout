@@ -3,12 +3,17 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_leadify/model/campaign_model.dart';
 import 'package:flutter_leadify/repository/campaigns_repository.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class CampaignViewModel extends ChangeNotifier {
 //
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 //
+  bool _isAddCampaignLoading = false;
+  bool get isAddCampaignLoading => _isAddCampaignLoading;
+//
+
   final CampaignsRepository _campaignsRepository = CampaignsRepository();
 
 //
@@ -21,9 +26,9 @@ class CampaignViewModel extends ChangeNotifier {
 //
 
 //
-  Set<Target> _targets = {};
-  Set<Target> get targets => _targets;
-  set targets(Set<Target> _) {
+  Set<String> _targets = {};
+  Set<String> get targets => _targets;
+  set targets(Set<String> _) {
     _targets = _;
     notifyListeners();
   }
@@ -31,7 +36,7 @@ class CampaignViewModel extends ChangeNotifier {
 
   void initializeTargets() {
     for (var element in _campaigns) {
-      _targets.add(element.target);
+      _targets.add(element.target.targetName);
     }
   }
 
@@ -56,5 +61,31 @@ class CampaignViewModel extends ChangeNotifier {
         log(e.toString());
       }
     }
+  }
+
+  Future<void> addCampaign(BuildContext context, String templateName) async {
+    try {
+      _isAddCampaignLoading = true;
+      notifyListeners();
+      final body = ({"template_name": templateName});
+      await _campaignsRepository.addCampaign(body);
+      Fluttertoast.showToast(
+        msg: "Campaign Added Successfully",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+      await getCampaigns();
+      if (context.mounted) {
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+    _isAddCampaignLoading = false;
+    notifyListeners();
   }
 }
