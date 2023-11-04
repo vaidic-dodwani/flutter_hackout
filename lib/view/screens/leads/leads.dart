@@ -47,34 +47,48 @@ class Leads extends StatelessWidget {
               child: LinearProgressIndicator()),):ref.leads!.isEmpty?const Center(child: Text("No Leads to be shown. Run the Scraper"),)
               :RefreshIndicator(
                 onRefresh: () => ref.getLeads(),
-                child: ListView.builder(
-                  itemCount: ref.leads?.length ?? 0,
-                  itemBuilder: (_, index) => Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 16.0, horizontal: 4),
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder:(_)=>  LeadDetail(leads: ref.leads![index],)));
-                          },
-                          child: LeadCard(
-                            lead: LeadModel(
-                                leadScore: ref.leads?[index].leadScore == ""
-                                    ? 0
-                                    : int.parse(ref.leads?[index].leadScore ?? "0"),
-                                name: ref.leads?[index].fullName,
-                                profileImage: ref.leads?[index].profileImageUrl,
-                                stage: ref.leads?[index].stateProgress == 1
-                                    ? LeadStage.aware
-                                    : ref.leads?[index].stateProgress == 2
-                                        ? LeadStage.interested
-                                        : ref.leads?[index].stateProgress == 3
-                                            ? LeadStage.desire
-                                            : ref.leads?[index].stateProgress == 4
-                                                ? LeadStage.closed
-                                                : LeadStage.aware),
-                          ),
-                        ),
-                      )),
+                child: Column(
+                  children: [
+                    SizedBox(height: 48,width: double.infinity,
+                      child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: leadGroup.length,
+                      itemBuilder: (_,index)=>Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: FilterChip(label:  Text(leadGroup[index]), onSelected: (b){}),
+                      )),),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: ref.leads?.length ?? 0,
+                        itemBuilder: (_, index) => Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0, horizontal: 4),
+                              child: InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder:(_)=>  LeadDetail(leads: ref.leads![index],)));
+                                },
+                                child: LeadCard(
+                                  lead: LeadModel(
+                                      leadScore: ref.leads?[index].leadScore == ""
+                                          ? 0
+                                          : int.parse(ref.leads?[index].leadScore ?? "0"),
+                                      name: ref.leads?[index].fullName,
+                                      profileImage: ref.leads?[index].profileImageUrl,
+                                      stage: ref.leads?[index].stateProgress == 1
+                                          ? LeadStage.aware
+                                          : ref.leads?[index].stateProgress == 2
+                                              ? LeadStage.interested
+                                              : ref.leads?[index].stateProgress == 3
+                                                  ? LeadStage.desire
+                                                  : ref.leads?[index].stateProgress == 4
+                                                      ? LeadStage.closed
+                                                      : LeadStage.aware),
+                                ),
+                              ),
+                            )),
+                    ),
+                  ],
+                ),
               );
           }))
         ],

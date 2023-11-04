@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:flutter_leadify/model/lead_backend_model.dart';
 
 import '../data/remote/network/api_end_points.dart';
 import '../data/remote/network/network_api_service.dart';
 
 abstract class IScrapRepository {
   Future<void> scrap(String companyName,String keywords);
+  Future<void> enrichData();
 }
 
 class ScrapRepository implements IScrapRepository {
@@ -46,7 +46,7 @@ class ScrapRepository implements IScrapRepository {
   Future<void> enrichData() async {
     try {
       log("get data");
-      final resp = await _apiService.getResponse(ApiLinks.enrich, header);
+       await _apiService.getResponse(ApiLinks.enrich, header);
       log("got data");
       
     } on Exception catch (_) {
