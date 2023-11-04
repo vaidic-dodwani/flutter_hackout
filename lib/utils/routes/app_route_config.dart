@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_leadify/view/screens/login/login.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../view/screens/bottom_navigation/bottom_navigation.dart';
@@ -8,8 +9,15 @@ class GoRouterConfig {
   static GoRouter router = GoRouter(
     routes: [
       GoRoute(
-        name: AppRouteNames.homepageRoute,
+        name: AppRouteNames.loginpageRoute,
         path: '/',
+        pageBuilder: (context, state) {
+          return MaterialPage(child: LoginView());
+        },
+      ),
+      GoRoute(
+        name: AppRouteNames.homepageRoute,
+        path: '/dashboard',
         pageBuilder: (context, state) {
           return MaterialPage(child: BottomNavigationScreen());
         },

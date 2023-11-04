@@ -8,21 +8,6 @@ class LeadCard extends StatelessWidget {
   final LeadModel lead;
   const LeadCard({super.key, required this.lead});
 
-  getStage(String stage) {
-    log(stage);
-    switch (stage) {
-      case LeadStage.aware:
-        return 1;
-      case LeadStage.interested:
-        return 2;
-      case LeadStage.desire:
-        return 3;
-      case LeadStage.closed:
-        return 4;
-      default:
-        return 0;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

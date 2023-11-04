@@ -9,6 +9,8 @@ class LeadNotifier extends ChangeNotifier {
   List<LeadModelBackend>? get leads => _leads;
 
   getLeads() async {
+    _leads = null;
+    notifyListeners();
     _leads = await repository.getLeads();
     notifyListeners();
   }

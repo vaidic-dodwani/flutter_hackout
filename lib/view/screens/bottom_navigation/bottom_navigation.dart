@@ -17,7 +17,7 @@ class BottomNavigationScreen extends StatelessWidget {
     const Homepage(),
     Leads(),
     const Templates(),
-    const Schedules(),
+     Schedules(),
     const Campaign(),
   ];
 

@@ -20,8 +20,9 @@ class LeadsRepository implements ILeadsRepository {
   @override
   Future<List<LeadModelBackend>> getLeads() async {
     try {
+      log("get leads");
       final resp = await _apiService.getResponse(ApiLinks.getleads, header);
-      log(resp);
+      log("got response");
       return List<LeadModelBackend>.from(
           resp.map((e) => LeadModelBackend.fromJson(e)));
     } on Exception catch (_) {
@@ -29,6 +30,8 @@ class LeadsRepository implements ILeadsRepository {
       rethrow;
     }
   }
+
+  
 
   @override
   Future<void> deleteAllLeads() async {
