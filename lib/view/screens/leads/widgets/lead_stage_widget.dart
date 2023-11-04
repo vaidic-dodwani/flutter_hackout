@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_leadify/utils/constants/constants.dart';
+import 'package:flutter_hackout/utils/constants/constants.dart';
 
 class LeadStageWidget extends StatelessWidget {
   final int leadScore;

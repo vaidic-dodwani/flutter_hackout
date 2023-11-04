@@ -11,11 +11,11 @@ List<BottomNavigationBarItem> bottomNavigationItems = [
   ),
   const BottomNavigationBarItem(
     icon: Icon(Icons.timer_outlined),
-    label: 'Templates',
+    label: 'Schedules',
   ),
   const BottomNavigationBarItem(
     icon: Icon(Icons.pie_chart_outline),
-    label: 'Schedule',
+    label: 'Templates',
   ),
   const BottomNavigationBarItem(
     icon: Icon(Icons.campaign_outlined),

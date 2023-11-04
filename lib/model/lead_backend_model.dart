@@ -23,7 +23,7 @@ class LeadModelBackend {
     final String? timestamp;
     final String? additionalInfo;
     final String? pastJob;
-    final Map<String, String>? detailedLeads;
+    final Map<String, dynamic>? detailedLeads;
     final int? stateProgress;
     final String? leadScore;
     final String? email;
@@ -72,7 +72,7 @@ class LeadModelBackend {
         timestamp: json["timestamp"],
         additionalInfo: json["additionalInfo"],
         pastJob: json["pastJob"],
-        detailedLeads: Map.from(json["detailed_leads"]!).map((k, v) => MapEntry<String, String>(k, v)),
+        detailedLeads: Map.from(json["detailed_leads"]!).map((k, v) => MapEntry<String, dynamic>(k, v)),
         stateProgress: json["state_progress"],
         leadScore: json["lead_score"],
         email: json["email"],

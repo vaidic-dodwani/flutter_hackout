@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 import '../app_exception.dart';
 import 'base_api_service.dart';
@@ -26,11 +27,14 @@ class NetworkApiService extends BaseApiService {
       String url, dynamic jsonBody, Map<String, String> header) async {
     dynamic responseJson;
     try {
+      log(baseUrl+url);
+      log(jsonBody);
       final response = await http
           .post(Uri.parse(baseUrl + url), body: jsonBody, headers: header)
           .timeout(
             const Duration(seconds: 10),
           );
+      
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet Connection');

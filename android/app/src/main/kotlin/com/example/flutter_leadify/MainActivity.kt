@@ -1,4 +1,4 @@
-package com.example.flutter_leadify
+package com.example.flutter_hackout
 
 import io.flutter.embedding.android.FlutterActivity
 
